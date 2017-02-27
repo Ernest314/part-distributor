@@ -43,6 +43,8 @@ public:
 private slots:
 	void add_disp_row();
 	void remove_disp_row();
+	void update_names();
+	void update_sectionLeaderDisp();
 
 private:
 	QScrollArea* get_scrollArea_row();

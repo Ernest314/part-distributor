@@ -31,3 +31,36 @@ void MainWindow::remove_disp_row()
 	}
 	ui->button_rows_remove->setEnabled(disp_rows.size() > 1);
 }
+
+void MainWindow::update_names()
+{
+	QComboBox* comboBox = ui->comboBox_section_leader;
+	QString sectionLeader_prev = comboBox->currentText();
+	comboBox->clear();
+
+	for (QScrollArea* scrollArea : disp_rows) {
+		//recursive
+		QList<QLineEdit*> lineEdits = scrollArea->widget()->findChildren<QLineEdit*>();
+		for (QLineEdit* lineEdit : lineEdits) {
+			comboBox->addItem(lineEdit->text());
+			if (lineEdit->text() == sectionLeader_prev) {
+				comboBox->setCurrentIndex(comboBox->findText(sectionLeader_prev));
+			}
+		}
+	}
+}
+
+void MainWindow::update_sectionLeaderDisp()
+{
+	QString sectionLeader = ui->comboBox_section_leader->currentText();
+
+	for (QScrollArea* scrollArea : disp_rows) {
+		//recursive
+		QList<QLineEdit*> lineEdits = scrollArea->widget()->findChildren<QLineEdit*>();
+		for (QLineEdit* lineEdit : lineEdits) {
+			QFont font = lineEdit->font();
+			font.setBold(lineEdit->text() == sectionLeader);
+			lineEdit->setFont(font);
+		}
+	}
+}
