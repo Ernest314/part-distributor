@@ -35,3 +35,7 @@ DISTFILES += \
 
 RESOURCES += \
     icons.qrc
+
+# Application icons
+win32:RC_ICONS += part-distributor.ico
+macx:ICON      += part-distributor.icns
