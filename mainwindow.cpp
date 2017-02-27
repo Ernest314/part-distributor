@@ -9,6 +9,21 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	ui->layout_disp->setAlignment(ui->spinBox_disp_row, Qt::AlignCenter);
 	ui->layout_disp->setAlignment(ui->widget_disp_name, Qt::AlignCenter);
+
+	QLineEdit* lineEdit_name = ui->lineEdit_disp_name;
+	QObject::connect(	lineEdit_name,	&QLineEdit::editingFinished,
+						this,			&MainWindow::update_names	);
+
+	QComboBox* comboBox_leader = ui->comboBox_section_leader;
+	QObject::connect(	comboBox_leader,	&QComboBox::currentTextChanged,
+						this,				&MainWindow::update_sectionLeaderDisp	);
+
+	QPushButton* button_row_add = ui->button_rows_add;
+	QPushButton* button_row_rem = ui->button_rows_remove;
+	QObject::connect(	button_row_add,	&QPushButton::clicked,
+						this,			&MainWindow::add_disp_row	);
+	QObject::connect(	button_row_rem,	&QPushButton::clicked,
+						this,			&MainWindow::remove_disp_row	);
 }
 
 MainWindow::~MainWindow()
@@ -86,6 +101,9 @@ QWidget* MainWindow::get_widget_name()
 		layout_widget->addLayout(layout_view);
 
 	widget->setLayout(layout_widget);	// TODO: remove?
+
+	QObject::connect(	lineEdit,	&QLineEdit::editingFinished,
+						this,		&MainWindow::update_names	);
 
 	return widget;
 }
