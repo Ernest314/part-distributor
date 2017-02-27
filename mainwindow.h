@@ -1,15 +1,20 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QDebug>
 #include <QFont>
+#include <QList>
 #include <QObject>
+#include <QString>
 
+#include <QComboBox>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QScrollArea>
 #include <QSpinBox>
 #include <QWidget>
 
+#include <QGridLayout>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 

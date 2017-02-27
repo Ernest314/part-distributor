@@ -283,27 +283,14 @@
           </rect>
          </property>
          <layout class="QGridLayout" name="layout_disp">
-          <item row="0" column="0">
-           <widget class="QSpinBox" name="spinBox_disp_row">
-            <property name="maximumSize">
-             <size>
-              <width>40</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="value">
-             <number>1</number>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="1">
            <widget class="QScrollArea" name="scrollArea_disp_row">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
             </property>
@@ -319,7 +306,7 @@
                <x>0</x>
                <y>0</y>
                <width>416</width>
-               <height>270</height>
+               <height>93</height>
               </rect>
              </property>
              <layout class="QHBoxLayout" name="layout_disp_row">
@@ -462,6 +449,25 @@
               </item>
              </layout>
             </widget>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QSpinBox" name="spinBox_disp_row">
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="value">
+             <number>1</number>
+            </property>
            </widget>
           </item>
          </layout>

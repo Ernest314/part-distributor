@@ -6,6 +6,9 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
+
+	ui->layout_disp->setAlignment(ui->spinBox_disp_row, Qt::AlignCenter);
+	ui->layout_disp->setAlignment(ui->widget_disp_name, Qt::AlignCenter);
 }
 
 MainWindow::~MainWindow()
@@ -15,25 +18,29 @@ MainWindow::~MainWindow()
 
 QScrollArea* MainWindow::get_scrollArea_row()
 {
-	QScrollArea* scrollArea = new QScrollArea(this);
+	QScrollArea* scrollArea = new QScrollArea(ui->scrollArea_disp->widget());
+	scrollArea->setWidget(new QWidget());
+		QSizePolicy sizePolicy = scrollArea->sizePolicy();
+		sizePolicy.setVerticalPolicy(QSizePolicy::Minimum);
+	scrollArea->setSizePolicy(sizePolicy);
 	scrollArea->setFrameShape(QFrame::NoFrame);
 	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 	scrollArea->setWidgetResizable(true);
-		QWidget* widget = new QWidget(scrollArea);
 
-			QHBoxLayout* layout = new QHBoxLayout(widget);
-			layout->setContentsMargins(0, 0, 0, 0);
-			layout->setSpacing(12);
+		QHBoxLayout* layout = new QHBoxLayout();
+		layout->setContentsMargins(0, 0, 0, 0);
+		layout->setSpacing(12);
+			QWidget* widget = get_widget_name();
+			layout->addWidget(widget);
 
-		widget->setLayout(layout);	// TODO: remove?
-	scrollArea->setWidget(widget);	// TODO: remove?
+	scrollArea->widget()->setLayout(layout);	// TODO: remove?
 
 	return scrollArea;
 }
 
 QSpinBox* MainWindow::get_spinBox_row()
 {
-	QSpinBox* spinBox = new QSpinBox(this);
+	QSpinBox* spinBox = new QSpinBox(ui->scrollArea_disp->widget());
 	spinBox->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 	spinBox->setMinimum(1);
 	spinBox->setValue(1);
@@ -42,7 +49,7 @@ QSpinBox* MainWindow::get_spinBox_row()
 
 QWidget* MainWindow::get_widget_name()
 {
-	QWidget* widget = new QWidget(this);
+	QWidget* widget = new QWidget(ui->scrollArea_disp->widget());
 	widget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 	widget->setMinimumSize(90, 75);
 	widget->setMaximumWidth(90);
@@ -61,7 +68,7 @@ QWidget* MainWindow::get_widget_name()
 			lineEdit->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 			lineEdit->setPlaceholderText("Name");
 
-			QHBoxLayout* layout_view = new QHBoxLayout(widget);
+			QHBoxLayout* layout_view = new QHBoxLayout();
 			layout_view->setSpacing(0);
 
 				QPushButton* button = new QPushButton(widget);
