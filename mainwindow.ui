@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Part Distributor</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/icons/part-distributor.png</normaloff>:/icons/part-distributor.png</iconset>
   </property>
   <widget class="QWidget" name="widget_main">
    <layout class="QGridLayout" name="layout_main" columnstretch="5,2">
@@ -96,17 +100,24 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>24</height>
+            <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>32</width>
+            <width>30</width>
             <height>16777215</height>
            </size>
           </property>
-          <property name="text">
-           <string>[-]</string>
+          <property name="icon">
+           <iconset resource="icons.qrc">
+            <normaloff>:/icons/minus.png</normaloff>:/icons/minus.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>18</width>
+            <height>18</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -121,17 +132,24 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>24</height>
+            <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>32</width>
+            <width>30</width>
             <height>16777215</height>
            </size>
           </property>
-          <property name="text">
-           <string>[+]</string>
+          <property name="icon">
+           <iconset resource="icons.qrc">
+            <normaloff>:/icons/plus.png</normaloff>:/icons/plus.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>18</width>
+            <height>18</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -344,7 +362,7 @@
                      <set>Qt::AlignCenter</set>
                     </property>
                     <property name="placeholderText">
-                     <string>John</string>
+                     <string>Name</string>
                     </property>
                    </widget>
                   </item>
@@ -377,8 +395,15 @@
                         <height>16777215</height>
                        </size>
                       </property>
-                      <property name="text">
-                       <string>[view]</string>
+                      <property name="icon">
+                       <iconset resource="icons.qrc">
+                        <normaloff>:/icons/external.png</normaloff>:/icons/external.png</iconset>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>20</width>
+                        <height>20</height>
+                       </size>
                       </property>
                      </widget>
                     </item>
@@ -488,7 +513,7 @@
         <item>
          <layout class="QGridLayout" name="layout_piece">
           <property name="horizontalSpacing">
-           <number>18</number>
+           <number>30</number>
           </property>
           <property name="verticalSpacing">
            <number>6</number>
@@ -532,6 +557,12 @@
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
                </spacer>
               </item>
               <item>
@@ -561,8 +592,15 @@
                 <height>16777215</height>
                </size>
               </property>
-              <property name="text">
-               <string>[up]</string>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/up.png</normaloff>:/icons/up.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
               </property>
              </widget>
             </item>
@@ -580,8 +618,15 @@
                 <height>16777215</height>
                </size>
               </property>
-              <property name="text">
-               <string>[down]</string>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/down.png</normaloff>:/icons/down.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
               </property>
              </widget>
             </item>
@@ -590,7 +635,7 @@
           <item row="0" column="1">
            <widget class="QLineEdit" name="lineEdit_piece">
             <property name="placeholderText">
-             <string>Clare de Lune</string>
+             <string>Title</string>
             </property>
            </widget>
           </item>
@@ -608,13 +653,14 @@
               <height>16777215</height>
              </size>
             </property>
-            <property name="text">
-             <string>[remove]</string>
+            <property name="icon">
+             <iconset resource="icons.qrc">
+              <normaloff>:/icons/trash.png</normaloff>:/icons/trash.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>24</width>
-              <height>24</height>
+              <width>20</width>
+              <height>20</height>
              </size>
             </property>
            </widget>
@@ -624,6 +670,29 @@
             <property name="spacing">
              <number>4</number>
             </property>
+            <item>
+             <widget class="QCheckBox" name="checkBox_part_solo">
+              <property name="text">
+               <string>Solo</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="spacer_piece_parts_C">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>16</width>
+                <height>0</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
             <item>
              <widget class="QLabel" name="label_piece_parts">
               <property name="text">
@@ -645,8 +714,15 @@
                 <height>16777215</height>
                </size>
               </property>
-              <property name="text">
-               <string>[-]</string>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/minus.png</normaloff>:/icons/minus.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>12</width>
+                <height>12</height>
+               </size>
               </property>
              </widget>
             </item>
@@ -683,31 +759,15 @@
                 <height>16777215</height>
                </size>
               </property>
-              <property name="text">
-               <string>[+]</string>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/plus.png</normaloff>:/icons/plus.png</iconset>
               </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="spacer_piece_parts_C">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Fixed</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
+              <property name="iconSize">
                <size>
-                <width>16</width>
-                <height>0</height>
+                <width>12</width>
+                <height>12</height>
                </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="checkBox_part_solo">
-              <property name="text">
-               <string>Solo</string>
               </property>
              </widget>
             </item>
@@ -716,9 +776,22 @@
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
              </spacer>
             </item>
            </layout>
+          </item>
+          <item row="3" column="1" colspan="2">
+           <widget class="Line" name="line_piece">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -901,7 +974,7 @@
          <string>Import...</string>
         </property>
         <property name="shortcut">
-         <string>Ctrl+E</string>
+         <string>Ctrl+I</string>
         </property>
        </widget>
       </item>
@@ -1093,6 +1166,8 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

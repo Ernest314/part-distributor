@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/part-distributor.png</file>
+        <file>icons/down.png</file>
+        <file>icons/external.png</file>
+        <file>icons/minus.png</file>
+        <file>icons/plus.png</file>
+        <file>icons/up.png</file>
+        <file>icons/trash.png</file>
+    </qresource>
+</RCC>
