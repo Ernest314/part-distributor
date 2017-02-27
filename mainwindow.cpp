@@ -13,7 +13,25 @@ MainWindow::~MainWindow()
 	delete ui;
 }
 
-QSpinBox* MainWindow::get_spinBox_rowNum()
+QScrollArea* MainWindow::get_scrollArea_row()
+{
+	QScrollArea* scrollArea = new QScrollArea(this);
+	scrollArea->setFrameShape(QFrame::NoFrame);
+	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	scrollArea->setWidgetResizable(true);
+		QWidget* widget = new QWidget(scrollArea);
+
+			QHBoxLayout* layout = new QHBoxLayout(widget);
+			layout->setContentsMargins(0, 0, 0, 0);
+			layout->setSpacing(12);
+
+		widget->setLayout(layout);	// TODO: remove?
+	scrollArea->setWidget(widget);	// TODO: remove?
+
+	return scrollArea;
+}
+
+QSpinBox* MainWindow::get_spinBox_row()
 {
 	QSpinBox* spinBox = new QSpinBox(this);
 	spinBox->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
@@ -22,7 +40,7 @@ QSpinBox* MainWindow::get_spinBox_rowNum()
 	return spinBox;
 }
 
-QWidget* MainWindow::get_widget_dispName()
+QWidget* MainWindow::get_widget_name()
 {
 	QWidget* widget = new QWidget(this);
 	widget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -60,7 +78,7 @@ QWidget* MainWindow::get_widget_dispName()
 		layout_widget->addWidget(lineEdit);
 		layout_widget->addLayout(layout_view);
 
-	widget->setLayout(layout_widget);
+	widget->setLayout(layout_widget);	// TODO: remove?
 
 	return widget;
 }

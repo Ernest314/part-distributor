@@ -1,11 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QFont>
 #include <QObject>
 
 #include <QLineEdit>
 #include <QPushButton>
-#include <QScrollBar>
+#include <QScrollArea>
 #include <QSpinBox>
 #include <QWidget>
 
@@ -30,8 +31,9 @@ public:
 	~MainWindow();
 
 private:
-	QSpinBox* get_spinBox_rowNum();
-	QWidget* get_widget_dispName();
+	QScrollArea* get_scrollArea_row();
+	QSpinBox* get_spinBox_row();
+	QWidget* get_widget_name();
 };
 
 #endif // MAINWINDOW_H
