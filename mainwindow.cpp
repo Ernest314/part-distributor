@@ -10,6 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->layout_disp->setAlignment(ui->spinBox_disp_row, Qt::AlignCenter);
 	ui->layout_disp->setAlignment(ui->widget_disp_name, Qt::AlignCenter);
 
+	disp_spinBoxes.push_back(ui->spinBox_disp_row);
+	disp_rows.push_back(ui->scrollArea_disp_row);
+
 	QLineEdit* lineEdit_name = ui->lineEdit_disp_name;
 	QObject::connect(	lineEdit_name,	&QLineEdit::editingFinished,
 						this,			&MainWindow::update_names	);

@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <vector>
+
 #include <QDebug>
 #include <QFont>
 #include <QList>
@@ -30,6 +32,9 @@ class MainWindow : public QMainWindow
 
 private:
 	Ui::MainWindow *ui;
+
+	std::vector<QSpinBox*> disp_spinBoxes;
+	std::vector<QScrollArea*> disp_rows;
 
 public:
 	explicit MainWindow(QWidget *parent = 0);
