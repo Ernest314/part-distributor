@@ -303,9 +303,9 @@
               <height>270</height>
              </rect>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_2">
+            <layout class="QVBoxLayout" name="layout_seatingDisp_row">
              <item>
-              <layout class="QHBoxLayout" name="layout_seatingDisp_names">
+              <layout class="QHBoxLayout" name="layout_seatingDisp_name_row">
                <item>
                 <widget class="QWidget" name="widget_seatingDisp_name" native="true">
                  <property name="sizePolicy">
@@ -344,12 +344,6 @@
                   </property>
                   <item>
                    <widget class="QLineEdit" name="lineEdit_seatingDisp_name">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
                     <property name="minimumSize">
                      <size>
                       <width>0</width>
@@ -378,12 +372,6 @@
                      <spacer name="spacer_seatingDisp_name_view_L">
                       <property name="orientation">
                        <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>0</width>
-                        <height>0</height>
-                       </size>
                       </property>
                      </spacer>
                     </item>
@@ -420,12 +408,6 @@
                      <spacer name="spacer_seatingDisp_name_view_R">
                       <property name="orientation">
                        <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>0</width>
-                        <height>0</height>
-                       </size>
                       </property>
                      </spacer>
                     </item>
@@ -480,6 +462,9 @@
               <widget class="QSpinBox" name="spinBox_rowNum">
                <property name="alignment">
                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+               <property name="minimum">
+                <number>1</number>
                </property>
                <property name="value">
                 <number>1</number>
@@ -607,8 +592,8 @@
               </property>
               <property name="iconSize">
                <size>
-                <width>20</width>
-                <height>20</height>
+                <width>18</width>
+                <height>18</height>
                </size>
               </property>
              </widget>
@@ -633,8 +618,8 @@
               </property>
               <property name="iconSize">
                <size>
-                <width>20</width>
-                <height>20</height>
+                <width>18</width>
+                <height>18</height>
                </size>
               </property>
              </widget>
