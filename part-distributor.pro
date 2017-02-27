@@ -30,5 +30,8 @@ HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
 
+DISTFILES += \
+    version.txt
+
 RESOURCES += \
     icons.qrc
