@@ -40,6 +40,10 @@ public:
 	explicit MainWindow(QWidget *parent = 0);
 	~MainWindow();
 
+private slots:
+	void add_disp_row();
+	void remove_disp_row();
+
 private:
 	QScrollArea* get_scrollArea_row();
 	QSpinBox* get_spinBox_row();
