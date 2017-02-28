@@ -10,8 +10,14 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->layout_disp->setAlignment(ui->spinBox_disp_row, Qt::AlignCenter);
 	ui->layout_disp->setAlignment(ui->widget_disp_name, Qt::AlignCenter);
 
-	disp_spinBoxes.push_back(ui->spinBox_disp_row);
 	disp_rows.push_back(ui->scrollArea_disp_row);
+
+	QSpinBox* spinBox = ui->spinBox_disp_row;
+	disp_spinBoxes.push_back(spinBox);
+	QObject::connect(	spinBox,	&QSpinBox::editingFinished,
+						[=]() { emit update_disp_name_signal(0); }	);
+	QObject::connect(	this,	&MainWindow::update_disp_name_signal,
+						this,	&MainWindow::update_disp_name	);
 
 	QLineEdit* lineEdit_name = ui->lineEdit_disp_name;
 	QObject::connect(	lineEdit_name,	&QLineEdit::editingFinished,
@@ -43,6 +49,7 @@ QScrollArea* MainWindow::get_scrollArea_row()
 	scrollArea->setSizePolicy(sizePolicy);
 	scrollArea->setFrameShape(QFrame::NoFrame);
 	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 	scrollArea->setWidgetResizable(true);
 
 		QHBoxLayout* layout = new QHBoxLayout();

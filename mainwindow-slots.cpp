@@ -1,6 +1,25 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+void MainWindow::update_disp_name(int index)
+{
+	int new_size = (disp_spinBoxes[index])->value();
+	int old_size =
+			((disp_rows[index])->widget()->findChildren<QLineEdit*>()).count();
+
+	if (new_size > old_size) {
+		for (int i=0; i < new_size-old_size; ++i) {
+			(disp_rows[index])->widget()->layout()->addWidget(get_widget_name());
+		}
+	}
+	if (new_size < old_size) {
+		for (int i=old_size-1; i >= new_size; --i) {
+			QLayoutItem* item = (disp_rows[index])->widget()->layout()->takeAt(i);
+			delete item->widget();
+		}
+	}
+}
+
 void MainWindow::add_disp_row()
 {
 	QSpinBox* spinBox = get_spinBox_row();
@@ -8,11 +27,14 @@ void MainWindow::add_disp_row()
 
 	QScrollArea* scrollArea = get_scrollArea_row();
 	disp_rows.push_back(scrollArea);
+	int last_row = disp_rows.size();
+
+	QObject::connect(	spinBox,	&QSpinBox::editingFinished,
+						[=]() { emit update_disp_name_signal(last_row-1); }	);
 
 	QGridLayout* layout = ui->layout_disp;
-	int last_row = layout->rowCount();
-	layout->addWidget(spinBox, last_row, 0);
-	layout->addWidget(scrollArea, last_row, 1);
+	layout->addWidget(spinBox, last_row-1, 0);
+	layout->addWidget(scrollArea, last_row-1, 1);
 
 	ui->button_rows_remove->setEnabled(true);
 }

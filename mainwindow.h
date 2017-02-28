@@ -40,7 +40,11 @@ public:
 	explicit MainWindow(QWidget *parent = 0);
 	~MainWindow();
 
+signals:
+	void update_disp_name_signal(int index);
+
 private slots:
+	void update_disp_name(int index);
 	void add_disp_row();
 	void remove_disp_row();
 	void update_names();
