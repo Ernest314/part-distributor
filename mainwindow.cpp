@@ -33,6 +33,17 @@ MainWindow::MainWindow(QWidget *parent) :
 						this,			&MainWindow::add_disp_row	);
 	QObject::connect(	button_row_rem,	&QPushButton::clicked,
 						this,			&MainWindow::remove_disp_row	);
+
+	QPushButton* button_piece_add = ui->button_pieces_add;
+	QObject::connect(	button_piece_add,	&QPushButton::clicked,
+						this,				&MainWindow::add_piece	);
+
+	button_row_add->click();
+	spinBox->setValue(3);
+	spinBox->editingFinished();
+	(disp_spinBoxes[1])->setValue(4);
+	(disp_spinBoxes[1])->editingFinished();
+	button_piece_add->click();
 }
 
 MainWindow::~MainWindow()
