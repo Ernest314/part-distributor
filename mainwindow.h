@@ -9,16 +9,19 @@
 #include <QObject>
 #include <QString>
 
+#include <QCheckBox>
 #include <QComboBox>
+#include <QFrame>
+#include <QLabel>
+	#include <QGridLayout>
+	#include <QHBoxLayout>
+	#include <QVBoxLayout>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QScrollArea>
+#include <QSlider>
 #include <QSpinBox>
 #include <QWidget>
-
-#include <QGridLayout>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
 
 #include <QMainWindow>
 
@@ -49,11 +52,13 @@ private slots:
 	void remove_disp_row();
 	void update_names();
 	void update_sectionLeaderDisp();
+	void add_piece();
 
 private:
 	QScrollArea* get_scrollArea_row();
 	QSpinBox* get_spinBox_row();
 	QWidget* get_widget_name();
+	QWidget* get_widget_piece();
 };
 
 #endif // MAINWINDOW_H

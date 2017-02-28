@@ -86,3 +86,9 @@ void MainWindow::update_sectionLeaderDisp()
 		}
 	}
 }
+
+void MainWindow::add_piece()
+{
+	QWidget* widget = get_widget_piece();
+	ui->layout_pieces->insertWidget(1, widget);
+}
