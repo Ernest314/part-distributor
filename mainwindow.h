@@ -46,6 +46,7 @@ public:
 
 signals:
 	void update_disp_name_signal(int index);
+	void remove_piece_signal(QWidget* widget);
 
 private slots:
 	void update_disp_name(int index);
@@ -54,6 +55,7 @@ private slots:
 	void update_names();
 	void update_sectionLeaderDisp();
 	void add_piece();
+	void remove_piece(QWidget* widget);
 
 private:
 	QScrollArea* get_scrollArea_row();

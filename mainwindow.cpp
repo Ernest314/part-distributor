@@ -64,6 +64,12 @@ MainWindow::MainWindow(QWidget *parent) :
 		lineEdit_parts->setText(QString::number(++parts));
 	});
 
+	QObject::connect(	this,	&MainWindow::remove_piece_signal,
+						this,	&MainWindow::remove_piece	);
+	QPushButton* button_piece_remove = ui->button_piece_remove;
+	QObject::connect(	button_piece_remove,	&QPushButton::clicked,
+						[=]() { emit remove_piece_signal(button_piece_remove->parentWidget()); });
+
 	button_row_add->click();
 	spinBox->setValue(3);
 	spinBox->editingFinished();
@@ -265,6 +271,9 @@ QWidget* MainWindow::get_widget_piece()
 		int parts = lineEdit_parts->text().toInt();
 		lineEdit_parts->setText(QString::number(++parts));
 	});
+
+	QObject::connect(	button_remove,	&QPushButton::clicked,
+						[=]() { emit remove_piece_signal(widget);	});
 
 	return widget;
 }

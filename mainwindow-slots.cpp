@@ -92,3 +92,9 @@ void MainWindow::add_piece()
 	QWidget* widget = get_widget_piece();
 	ui->layout_pieces->insertWidget(1, widget);
 }
+
+void MainWindow::remove_piece(QWidget* widget)
+{
+	ui->layout_pieces->removeWidget(widget);
+	delete widget;
+}
