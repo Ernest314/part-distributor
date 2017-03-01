@@ -34,9 +34,35 @@ MainWindow::MainWindow(QWidget *parent) :
 	QObject::connect(	button_row_rem,	&QPushButton::clicked,
 						this,			&MainWindow::remove_disp_row	);
 
+	ui->lineEdit_piece_parts->setValidator(new QIntValidator(1, 999, this));
+
 	QPushButton* button_piece_add = ui->button_pieces_add;
 	QObject::connect(	button_piece_add,	&QPushButton::clicked,
 						this,				&MainWindow::add_piece	);
+
+	QLineEdit* lineEdit_parts = ui->lineEdit_piece_parts;
+	QObject::connect(	lineEdit_parts,	&QLineEdit::textChanged,
+						[=]() {
+		QString text_color = "color: black;";
+		int pos = 0; // doesn't matter, function just needs this param
+		if (lineEdit_parts->validator()->validate(lineEdit_parts->text(), pos) != QIntValidator::Acceptable) {
+			text_color = "color: red;";
+		}
+		lineEdit_parts->setStyleSheet(text_color);
+	});
+
+	QPushButton* button_parts_remove = ui->button_piece_parts_remove;
+	QObject::connect(	button_parts_remove,	&QPushButton::clicked,
+						[=]() {
+		int parts = lineEdit_parts->text().toInt();
+		if (parts > 1) { lineEdit_parts->setText(QString::number(--parts)); }
+	});
+	QPushButton* button_parts_add = ui->button_piece_parts_add;
+	QObject::connect(	button_parts_add,	&QPushButton::clicked,
+						[=]() {
+		int parts = lineEdit_parts->text().toInt();
+		lineEdit_parts->setText(QString::number(++parts));
+	});
 
 	button_row_add->click();
 	spinBox->setValue(3);
@@ -218,6 +244,27 @@ QWidget* MainWindow::get_widget_piece()
 	layout_main->addWidget(line, 3, 0, 1, 2);
 
 	widget->setLayout(layout_main);
+
+	QObject::connect(	lineEdit_parts,	&QLineEdit::textChanged,
+						[=]() {
+		QString text_color = "color: black;";
+		int pos = 0; // doesn't matter, function just needs this param
+		if (lineEdit_parts->validator()->validate(lineEdit_parts->text(), pos) != QIntValidator::Acceptable) {
+			text_color = "color: red;";
+		}
+		lineEdit_parts->setStyleSheet(text_color);
+	});
+
+	QObject::connect(	button_parts_remove,	&QPushButton::clicked,
+						[=]() {
+		int parts = lineEdit_parts->text().toInt();
+		if (parts > 1) { lineEdit_parts->setText(QString::number(--parts)); }
+	});
+	QObject::connect(	button_parts_add,	&QPushButton::clicked,
+						[=]() {
+		int parts = lineEdit_parts->text().toInt();
+		lineEdit_parts->setText(QString::number(++parts));
+	});
 
 	return widget;
 }

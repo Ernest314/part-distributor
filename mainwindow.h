@@ -8,6 +8,7 @@
 #include <QList>
 #include <QObject>
 #include <QString>
+	#include <QIntValidator>
 
 #include <QCheckBox>
 #include <QComboBox>
