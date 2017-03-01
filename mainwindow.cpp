@@ -210,6 +210,7 @@ QWidget* MainWindow::get_widget_piece()
 			slider->setMinimum(1);
 			slider->setMaximum(3);
 			slider->setPageStep(1);
+			slider->setValue(3);
 			slider->setOrientation(Qt::Horizontal);
 			slider->setInvertedControls(true);
 		layout_balance->addWidget(slider);
