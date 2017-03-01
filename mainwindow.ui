@@ -525,6 +525,7 @@
             <widget class="QLineEdit" name="lineEdit_piece">
              <property name="font">
               <font>
+               <pointsize>10</pointsize>
                <italic>true</italic>
               </font>
              </property>

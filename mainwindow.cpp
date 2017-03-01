@@ -171,6 +171,7 @@ QWidget* MainWindow::get_widget_piece()
 
 		QLineEdit* lineEdit_title = new QLineEdit();
 			QFont font_title = lineEdit_title->font();
+			font_title.setPointSize(10);
 			font_title.setItalic(true);
 		lineEdit_title->setFont(font_title);
 		lineEdit_title->setPlaceholderText("Title");
