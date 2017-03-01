@@ -32,6 +32,9 @@ void MainWindow::add_disp_row()
 	QObject::connect(	spinBox,	&QSpinBox::editingFinished,
 						[=]() { emit update_disp_name_signal(last_row-1); }	);
 
+	spinBox->setValue(5);
+	spinBox->editingFinished();
+
 	QGridLayout* layout = ui->layout_disp;
 	layout->addWidget(spinBox, last_row-1, 0);
 	layout->addWidget(scrollArea, last_row-1, 1);
