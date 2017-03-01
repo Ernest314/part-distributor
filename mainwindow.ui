@@ -501,7 +501,7 @@
        </property>
        <layout class="QVBoxLayout" name="layout_pieces">
         <property name="spacing">
-         <number>24</number>
+         <number>30</number>
         </property>
         <item>
          <widget class="QWidget" name="widget_piece" native="true">
