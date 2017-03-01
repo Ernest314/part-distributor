@@ -90,7 +90,8 @@ void MainWindow::update_sectionLeaderDisp()
 void MainWindow::add_piece()
 {
 	QWidget* widget = get_widget_piece();
-	ui->layout_pieces->insertWidget(1, widget);
+	int i = (ui->widget_pieces->findChildren<QWidget*>(QString(), Qt::FindDirectChildrenOnly)).count() - 1;
+	ui->layout_pieces->insertWidget(i-1, widget);
 }
 
 void MainWindow::remove_piece(QWidget* widget)
